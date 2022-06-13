@@ -1,5 +1,9 @@
 # Release notes
 
+## 0.9.0
+
+ - Scala 3 support
+
 ## 0.7.0
 
  - Update circe to version [0.12.1](https://github.com/circe/circe/releases/tag/v0.12.1). [#71]

@@ -1,10 +1,10 @@
 name := "circe-config"
 description := "Yet another Typesafe Config decoder"
-homepage := Some(url("https://github.com/circe/circe-config"))
+homepage := Some(url("https://github.com/kovacshuni/circe-config"))
 licenses += "Apache-2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0.html")
 apiURL := Some(url("https://circe.github.io/circe-config/"))
 
-ThisBuild / organization := "io.circe"
+ThisBuild / organization := "com.hunorkovacs"
 ThisBuild / crossScalaVersions := List("2.12.15", "2.13.8", "3.1.0")
 ThisBuild / scalaVersion := crossScalaVersions.value.last
 
@@ -66,7 +66,7 @@ Compile / unmanagedSourceDirectories += {
 enablePlugins(GitPlugin)
 versionWithGit
 git.useGitDescribe := true
-git.remoteRepo := "git@github.com:circe/circe-config.git"
+git.remoteRepo := "git@github.com:kovacshuni/circe-config.git"
 
 enablePlugins(ReleasePlugin)
 releaseCrossBuild := true
@@ -172,8 +172,8 @@ publishTo := Some {
 
 scmInfo := Some(
   ScmInfo(
-    url("https://github.com/circe/circe-config"),
-    "scm:git:git@github.com:circe/circe-config.git"
+    url("https://github.com/kovacshuni/circe-config"),
+    "scm:git:git@github.com:kovacshuni/circe-config.git"
   )
 )
 
