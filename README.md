@@ -1,6 +1,5 @@
 # circe-config
 
-[![CI Status]][CI]
 [![Latest Version Badge]][Latest Version]
 
 Small library for translating between [HOCON], [Java properties], and JSON
