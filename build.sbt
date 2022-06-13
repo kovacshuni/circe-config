@@ -5,7 +5,7 @@ licenses += "Apache-2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0.htm
 apiURL := Some(url("https://circe.github.io/circe-config/"))
 
 ThisBuild / organization := "io.circe"
-ThisBuild / crossScalaVersions := List("2.12.14", "2.13.6", "3.1.0")
+ThisBuild / crossScalaVersions := List("2.12.15", "2.13.8", "3.1.0")
 ThisBuild / scalaVersion := crossScalaVersions.value.last
 
 ThisBuild / githubWorkflowJavaVersions := Seq("adopt@1.8")
@@ -94,11 +94,11 @@ releaseProcess := {
 val Versions = new {
   val catsEffect = "2.5.4"
   val circe = "0.14.1"
-  val config = "1.4.1"
-  val discipline = "1.1.5"
+  val config = "1.4.2"
+  val discipline = "1.4.0"
   val scalaCheck = "1.15.4"
-  val scalaTest = "3.2.10"
-  val scalaTestPlus = "3.2.10.0"
+  val scalaTest = "3.2.11"
+  val scalaTestPlus = "3.2.11.0"
 }
 
 libraryDependencies ++= Seq(
