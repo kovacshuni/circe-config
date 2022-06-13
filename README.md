@@ -124,5 +124,5 @@ limitations under the License.
  [Typesafe config]: https://github.com/lightbend/config
  [CI]: https://github.com/circe/circe-config/actions
  [CI Status]: https://img.shields.io/github/workflow/status/circe/circe-config/Continuous%20Integration.svg
- [Latest Version Badge]: https://img.shields.io/maven-central/v/io.circe/circe-config_2.12.svg
- [Latest Version]: https://maven-badges.herokuapp.com/maven-central/io.circe/circe-config_2.12
+ [Latest Version Badge]: https://img.shields.io/maven-central/v/com.hunorkovacs/circe-config_3.svg
+ [Latest Version]: https://maven-badges.herokuapp.com/maven-central/com.hunorkovacs/circe-config_3
