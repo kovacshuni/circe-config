@@ -21,6 +21,8 @@ To use this library configure your sbt project with the following line:
 libraryDependencies += "com.hunorkovacs" %% "circe-config" % "0.9.0"
 ```
 
+Compatible with Scala 3, 2.13, 2.12.
+
 ## Documentation
 
  - [API docs](https://circe.github.io/circe-config/io/circe/config/index.html)
@@ -108,6 +110,8 @@ To release version `x.y.z` run:
     > sbt -Dproject.version=x.y.z release
 
 ## License
+
+Note from @kovacshuni: The original repo is [circe/circe-config](https://github.com/circe/circe-config). This repository was cloned only to release the [Scala 3 compatiblity change](https://github.com/circe/circe-config/pull/252), a feature mostly developed by @vhiairrassary, to a public repository (Sonatype) so that it's easy to access for the general public.
 
 circe-config is licensed under the **[Apache License, Version 2.0][apache]** (the
 "License"); you may not use this software except in compliance with the License.
