@@ -1,6 +1,5 @@
 # circe-config
 
-[![CI Status]][CI]
 [![Latest Version Badge]][Latest Version]
 
 Small library for translating between [HOCON], [Java properties], and JSON
@@ -19,8 +18,10 @@ More generally it provides parsers and printers for interoperating with
 To use this library configure your sbt project with the following line:
 
 ```sbt
-libraryDependencies += "io.circe" %% "circe-config" % "0.7.0"
+libraryDependencies += "com.hunorkovacs" %% "circe-config" % "0.9.0"
 ```
+
+Compatible with Scala 3, 2.13, 2.12.
 
 ## Documentation
 
@@ -111,6 +112,8 @@ To release version `x.y.z` run:
 
 ## License
 
+Note from @kovacshuni: The original repo is [circe/circe-config](https://github.com/circe/circe-config). This repository was cloned only to release the [Scala 3 compatiblity change](https://github.com/circe/circe-config/pull/252), a feature mostly developed by @vhiairrassary, to a public repository (Sonatype) so that it's easy to access for the general public.
+
 circe-config is licensed under the **[Apache License, Version 2.0][apache]** (the
 "License"); you may not use this software except in compliance with the License.
 
@@ -125,5 +128,5 @@ limitations under the License.
  [Typesafe config]: https://github.com/lightbend/config
  [CI]: https://github.com/circe/circe-config/actions
  [CI Status]: https://img.shields.io/github/workflow/status/circe/circe-config/Continuous%20Integration.svg
- [Latest Version Badge]: https://img.shields.io/maven-central/v/io.circe/circe-config_2.12.svg
- [Latest Version]: https://maven-badges.herokuapp.com/maven-central/io.circe/circe-config_2.12
+ [Latest Version Badge]: https://img.shields.io/maven-central/v/com.hunorkovacs/circe-config_3.svg
+ [Latest Version]: https://maven-badges.herokuapp.com/maven-central/com.hunorkovacs/circe-config_3

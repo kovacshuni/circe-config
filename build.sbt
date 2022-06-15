@@ -1,11 +1,11 @@
 name := "circe-config"
 description := "Yet another Typesafe Config decoder"
-homepage := Some(url("https://github.com/circe/circe-config"))
+homepage := Some(url("https://github.com/kovacshuni/circe-config"))
 licenses += "Apache-2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0.html")
 apiURL := Some(url("https://circe.github.io/circe-config/"))
 
-ThisBuild / organization := "io.circe"
-ThisBuild / crossScalaVersions := List("2.12.14", "2.13.6")
+ThisBuild / organization := "com.hunorkovacs"
+ThisBuild / crossScalaVersions := List("2.12.15", "2.13.8", "3.1.0")
 ThisBuild / scalaVersion := crossScalaVersions.value.last
 
 ThisBuild / githubWorkflowJavaVersions := Seq("adopt@1.8")
@@ -21,7 +21,19 @@ ThisBuild / githubWorkflowBuild := Seq(
       "coverageReport"
     ),
     id = None,
-    name = Some("Test")
+    name = Some("Test with coverage"),
+    cond = Some("${{ matrix.scala != '3.1.0' }}")
+  ),
+  WorkflowStep.Sbt(
+    List(
+      "clean",
+      "scalafmtCheckAll",
+      "scalafmtSbtCheck",
+      "test"
+    ),
+    id = None,
+    name = Some("Test without coverage"),
+    cond = Some("${{ matrix.scala == '3.1.0' }}")
   ),
   WorkflowStep.Use(
     UseRef.Public(
@@ -54,7 +66,7 @@ Compile / unmanagedSourceDirectories += {
 enablePlugins(GitPlugin)
 versionWithGit
 git.useGitDescribe := true
-git.remoteRepo := "git@github.com:circe/circe-config.git"
+git.remoteRepo := "git@github.com:kovacshuni/circe-config.git"
 
 enablePlugins(ReleasePlugin)
 releaseCrossBuild := true
@@ -82,11 +94,11 @@ releaseProcess := {
 val Versions = new {
   val catsEffect = "3.2.8"
   val circe = "0.14.1"
-  val config = "1.4.1"
-  val discipline = "1.1.5"
+  val config = "1.4.2"
+  val discipline = "1.4.0"
   val scalaCheck = "1.15.4"
-  val scalaTest = "3.2.9"
-  val scalaTestPlus = "3.2.9.0"
+  val scalaTest = "3.2.11"
+  val scalaTestPlus = "3.2.11.0"
 }
 
 libraryDependencies ++= Seq(
@@ -160,8 +172,8 @@ publishTo := Some {
 
 scmInfo := Some(
   ScmInfo(
-    url("https://github.com/circe/circe-config"),
-    "scm:git:git@github.com:circe/circe-config.git"
+    url("https://github.com/kovacshuni/circe-config"),
+    "scm:git:git@github.com:kovacshuni/circe-config.git"
   )
 )
 

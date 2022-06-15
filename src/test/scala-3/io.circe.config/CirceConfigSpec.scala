@@ -15,13 +15,12 @@
  */
 package io.circe.config
 
-import cats.effect.unsafe.implicits.global
 import cats.effect.IO
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.flatspec.AnyFlatSpec
 import com.typesafe.config.{parser => _, _}
 import io.circe.{parser => _, _}
-import io.circe.generic.auto._
+import io.circe.syntax._
 
 import scala.concurrent.duration._
 import java.time.Period
@@ -106,7 +105,7 @@ class CirceConfigSpec extends AnyFlatSpec with Matchers {
 object CirceConfigSpec {
   val testResourcesDir = new java.io.File("src/test/resources")
   def resolveFile(name: String) = new java.io.File(testResourcesDir, name)
-  def readFile(path: String) = Source.fromFile(resolveFile(path)).getLines.mkString("\n")
+  def readFile(path: String) = Source.fromFile(resolveFile(path)).getLines().mkString("\n")
 
   val AppConfig: Config = ConfigFactory.parseResources("CirceConfigSpec.conf")
   val AppConfigString: String = readFile("CirceConfigSpec.conf")
@@ -119,7 +118,7 @@ object CirceConfigSpec {
   }
 
   case class TypeWithAdder[T: Adder](typeWithAdder: T)
-  case class Nested(obj: Boolean)
+  case class Nested(obj: Boolean) derives Decoder
   case class TestConfig(
     a: Int,
     b: Boolean,
@@ -137,19 +136,19 @@ object CirceConfigSpec {
     n: Double,
     o: Double,
     p: Period
-  )
+  ) derives Decoder
 
   case class ServerSettings(
     host: String,
     port: Int,
     timeout: FiniteDuration,
     maxUpload: ConfigMemorySize
-  )
+  ) derives Decoder
   case class HttpSettings(
     version: Double,
     server: ServerSettings
-  )
-  case class AppSettings(http: HttpSettings)
+  ) derives Decoder
+  case class AppSettings(http: HttpSettings) derives Decoder
 
   val DecodedAppSettings = AppSettings(
     HttpSettings(
@@ -181,4 +180,10 @@ object CirceConfigSpec {
     o = 0,
     p = Period.ofWeeks(4)
   )
+
+  given typeWithAdderDecoder[T: Adder](using adderDecoder: Decoder[T]): Decoder[TypeWithAdder[T]] = { hCursor =>
+    for {
+      typeWithAdder <- hCursor.downField("typeWithAdder").as[T]
+    } yield TypeWithAdder(typeWithAdder)
+  }
 }
