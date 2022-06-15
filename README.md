@@ -18,10 +18,18 @@ More generally it provides parsers and printers for interoperating with
 To use this library configure your sbt project with the following line:
 
 ```sbt
-libraryDependencies += "com.hunorkovacs" %% "circe-config" % "0.9.0"
+libraryDependencies += "com.hunorkovacs" %% "circe-config" % "0.10.0"
 ```
 
 Compatible with Scala 3, 2.13, 2.12.
+
+More specific version table:
+
+| circe-config | Scala             | cats-effect | circe  |
+| ------------ | ----------------- | ----------- | ------ |
+| 0.8.0        | 2.12, 2.13        | 2.5.4       | 0.14.1 |
+| 0.9.0        | 2.12, 2.13, 3.1.0 | 2.5.4       | 0.14.1 |
+| 0.10.0       | 2.12, 2.13, 3.1.0 | 3.2.8       | 0.14.1 |
 
 ## Documentation
 
