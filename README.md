@@ -89,8 +89,8 @@ res1: AppSettings = AppSettings(HttpSettings(ServerSettings(localhost,8080),Some
 scala> parser.decodePathF[IO, ServerSettings]("http.server")
 res2: cats.effect.IO[ServerSettings] = IO(ServerSettings(localhost,8080))
 
-scala> parser.decodePathF[IO, ServerSettings]("path.not.found").option.unsafeRunSync
-res3: Option[ServerSettings] = None
+scala> parser.decodePathF[IO, ServerSettings]("path.not.found").attempt.unsafeRunSync()
+res3: Either[Throwable, ServerSettings] = Left(io.circe.ParsingFailure: Path not found in config)
 ```
 
 This makes the configuration directly available in your `F[_]`, such as `cats.effect.IO`, which handles any errors.

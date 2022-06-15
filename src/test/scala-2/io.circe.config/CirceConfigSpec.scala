@@ -15,8 +15,6 @@
  */
 package io.circe.config
 
-import cats.effect.unsafe.implicits.global
-import cats.effect.IO
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.flatspec.AnyFlatSpec
 import com.typesafe.config.{parser => _, _}
