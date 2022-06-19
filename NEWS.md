@@ -1,5 +1,9 @@
 # Release notes
 
+## 0.10.0
+
+ - cats-effect 3 support
+
 ## 0.9.0
 
  - Scala 3 support
