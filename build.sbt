@@ -165,9 +165,9 @@ pomIncludeRepository := { _ =>
   false
 }
 publishTo := Some {
-  if (isSnapshot.value)
-    Opts.resolver.sonatypeSnapshots
-  else
+  // if (isSnapshot.value)
+  //   Opts.resolver.sonatypeSnapshots
+  // else
     Opts.resolver.sonatypeStaging
 }
 

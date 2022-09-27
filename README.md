@@ -114,6 +114,18 @@ how to create issues and submit patches.
 
 ## Releasing
 
+Have your ~/.sbt/1.0/credentials.sbt contain `credentials += Credentials("Sonatype Nexus Repository Manager", "oss.sonatype.org", "yourusername", "yourpassword")`
+
+Comment out the snapshot possiblity in `build.sbt`. Somehow for me it's always seeing it as snapshot and will give HTTP 400 on Sonatype Nexus.
+```
+publishTo := Some {
+  // if (isSnapshot.value)
+  //   Opts.resolver.sonatypeSnapshots
+  // else
+    Opts.resolver.sonatypeStaging
+}
+```
+
 To release version `x.y.z` run:
 
     > sbt -Dproject.version=x.y.z release
